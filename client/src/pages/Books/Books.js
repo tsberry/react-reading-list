@@ -4,6 +4,7 @@ import DeleteBtn from "../../components/DeleteBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Link } from "react-router-dom";
 import API from "../../utils/API.js";
 
 class Books extends Component {
@@ -76,11 +77,11 @@ class Books extends Component {
                             <List>
                                 {this.state.books.map(book => (
                                     <ListItem key={book._id}>
-                                        <a href={"/books/" + book._id}>
+                                        <Link to={"/books/" + book._id}>
                                             <strong>
                                                 {book.title} by {book.author}
                                             </strong>
-                                        </a>
+                                        </Link>
                                         <DeleteBtn onClick={this.deleteBook(book._id)} />
                                     </ListItem>
                                 ))}
